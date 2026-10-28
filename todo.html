@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f3f5ec">
+    <meta name="description" content="A simple, uplifting place to plan your day and celebrate progress.">
+    <title>Daymark | To-do list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+    <main class="app-shell">
+        <header class="topbar">
+            <a class="brand" href="#" aria-label="Daymark home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <path d="M8 16.5 13.2 22 24 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 3.5a12.5 12.5 0 1 0 12.5 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                <span>daymark</span>
+            </a>
+            <p class="today-label" id="today-date"></p>
+        </header>
+
+        <section class="intro" aria-labelledby="page-title">
+            <div class="intro-copy">
+                <p class="eyebrow"><span></span> A FRESH PAGE, EVERY DAY</p>
+                <h1 id="page-title">Make space for<br><em>what matters.</em></h1>
+                <p class="intro-note">Small steps make a good day. Pick one and get started.</p>
+            </div>
+            <aside class="progress-panel" aria-label="Daily progress">
+                <div class="progress-topline">
+                    <span class="progress-label">TODAY'S PROGRESS</span>
+                    <span class="progress-number" id="progress-count">0%</span>
+                </div>
+                <div class="progress-track" role="progressbar" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <span class="progress-fill" id="progress-fill"></span>
+                </div>
+                <p id="task-summary" aria-live="polite"></p>
+            </aside>
+        </section>
+
+        <section class="task-workspace" aria-labelledby="tasks-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow section-eyebrow">YOUR LIST</p>
+                    <h2 id="tasks-heading">Tasks <span class="heading-sparkle" aria-hidden="true">✳</span></h2>
+                </div>
+                <button class="clear-button" id="clear-completed" type="button" disabled>Clear completed</button>
+            </div>
+
+            <form class="task-form" id="task-form">
+                <label class="visually-hidden" for="task-name">Add a task</label>
+                <span class="input-plus" aria-hidden="true">+</span>
+                <input type="text" id="task-name" name="task" placeholder="What would you like to get done?" maxlength="180" autocomplete="off" required>
+                <button class="add-button" type="submit"><span aria-hidden="true">+</span> Add task</button>
+            </form>
+
+            <div class="task-toolbar">
+                <div class="tabs" role="tablist" aria-label="Task status">
+                    <button class="tab is-active" id="active-tab" type="button" role="tab" data-filter="active" aria-controls="tasks" aria-selected="true">
+                        Active <span class="tab-count" id="active-count">0</span>
+                    </button>
+                    <button class="tab" id="completed-tab" type="button" role="tab" data-filter="completed" aria-controls="tasks" aria-selected="false" tabindex="-1">
+                        Completed <span class="tab-count" id="completed-count">0</span>
+                    </button>
+                </div>
+                <span class="list-hint">One thing at a time</span>
+            </div>
+
+            <div class="tasks" id="tasks" role="tabpanel" aria-labelledby="active-tab"></div>
+        </section>
+
+        <footer class="app-footer">
+            <span class="footer-mark" aria-hidden="true">✳</span>
+            <p>Progress is progress, no matter the pace.</p>
+        </footer>
+    </main>
+    <script src="todo.js"></script>
+</body>
+</html>
